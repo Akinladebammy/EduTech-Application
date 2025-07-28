@@ -8,11 +8,16 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
     setError(null);
+    
 
     try {
       console.log("Request body:", JSON.stringify({ email, password }));
@@ -38,6 +43,8 @@ const Login = () => {
     } catch (err) {
       console.error("Fetch error:", err);
       setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -95,7 +102,7 @@ const Login = () => {
             <label htmlFor="rememberMe">Remember Me</label>
           </div>
           <button type="submit" className={styles.loginBtn}>
-            Log In
+            {isLoading ? "Logging In..." : "Log In"}
           </button>
           {/* <a href="#forgot" className={styles.forgotPassword}>
             Forgot Password?
