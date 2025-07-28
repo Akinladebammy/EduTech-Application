@@ -1,0 +1,215 @@
+/* Home.module.css */
+
+/* @import url('https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900'); */
+
+.homeContainer {
+  min-height: 100vh;
+  background-image: url("../images/home-background.png");
+  background-size: 80%; /* A compromise between cover and contain, slightly wider than contain */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.homeContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem; /* Wider padding */
+  position: relative;
+  z-index: 2;
+  font-weight: 700; /* Bolder text */
+  font-size: 1.2rem; /* Bolder and wider appearance */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.robotIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Wider gap */
+}
+
+.navLinks a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700; /* Bolder text */
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #60a5fa;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 700; /* Bolder text */
+}
+
+.signUpBtn {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem 2rem; /* Wider padding */
+  border-radius: 10px; /* Slightly larger radius */
+  text-decoration: none;
+  font-weight: 700; /* Bolder text */
+  transition: background 0.3s ease;
+}
+
+.signUpBtn:hover {
+  background: #2563eb;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centralize content */
+  padding: 4rem 2rem;
+  max-width: 1400px; /* Wider content area */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  gap: 4rem;
+}
+
+.heroSection {
+  flex: 1;
+  max-width: 800px; /* Wider section */
+  text-align: center; /* Centralize text */
+}
+
+.heroTitle {
+  font-size: 3.5rem; /* Larger and bolder */
+  font-weight: 850; /* Bolder */
+  color: white;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  text-align: center; /* Centralize */
+}
+
+.heroSubtitle {
+  font-size: 2rem; /* Larger and bolder */
+  font-weight: 600; /* Bolder */
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center; /* Centralize */
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+  }
+
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .navLinks a,
+  .signUpBtn,
+  .navLink {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .mainContent {
+    padding-top: 6rem; /* Add padding to account for navbar height */
+    padding: 2rem 1rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .heroSection {
+    max-width: 100%;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .hamburger {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+}
