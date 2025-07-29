@@ -20,7 +20,7 @@ const Login = () => {
     
 
     try {
-      console.log("Request body:", JSON.stringify({ email, password }));
+      // console.log("Request body:", JSON.stringify({ email, password }));
       const response = await fetch("https://studybuddy-1-taps.onrender.com/auth/login", {
         method: "POST",
         headers: {
@@ -30,8 +30,8 @@ const Login = () => {
       });
 
       const data = await response.json();
-      console.log("Response status:", response.status);
-      console.log("Response data:", data);
+      // console.log("Response status:", response.status);
+      // console.log("Response data:", data);
 
       if (response.ok && data.success) {
         localStorage.setItem("access_token", data.data.access_token);
@@ -41,7 +41,7 @@ const Login = () => {
         setError(data.message || "Invalid credentials");
       }
     } catch (err) {
-      console.error("Fetch error:", err);
+      // console.error("Fetch error:", err);
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
