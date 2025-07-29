@@ -155,7 +155,7 @@ const SignUp = () => {
               G
             </button>
             <button type="button" className={styles.socialBtn}>
-              🍎
+              ♪
             </button>
             <button type="button" className={styles.socialBtn}>
               f
